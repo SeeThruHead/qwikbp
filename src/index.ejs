@@ -1,22 +1,133 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Harp, Gulp And BrowserSync</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="main.css">
+  <title>Coin Flip</title>
 </head>
 <body>
 
-  <div class="main" role="main">
-    <h1>Harp, Gulp And BrowserSync</h1>
-    <h2>Also, you are doing a great job. Good for you.</h2>
-  </div>
+  <script>
+
+    // Version 5
+    // function CoinFlip() {
+    //   this.heads = 0;
+    //   this.tails = 0;
+    // }
+    // CoinFlip.prototype.print = function(elementType) {
+    //   var text = document.createTextNode('Heads: ' + this.heads + '. Tails: ' + this.tails + '.');
+    //   var element = document.createElement(elementType || 'H1');
+    //   element.appendChild(text);
+    //   document.body.appendChild(element);
+    //   return this;
+    // };
+    // CoinFlip.prototype.flip = function() {
+    //     return Math.random()<.5;
+    // };
+    // CoinFlip.prototype.flipMany = function() {
+    //   var h, t;
+    //   h = t = 0;
+    //   for(i = 0; i < 100; i++)this.flip()? h++ : t++;
+    //   this.heads = h, this.tails = t;
+    //   return this;
+    //   };
+
+    // var myFlip = new CoinFlip();
+    // myFlip.flipMany().print();
+
+    // // Version 4
+    // var coinFlip = new function() {
+    //   this.heads = 0;
+    //   this.tails = 0;
+    //   this.print = function(elementType) {
+    //     var text = document.createTextNode('Heads: ' + this.heads + '. Tails: ' + this.tails + '.');
+    //     var element = document.createElement(elementType || 'H1');
+    //     element.appendChild(text);
+    //     document.body.appendChild(element);
+    //     return this;
+    //   };
+    //   this.flip = function() {
+    //       return Math.random()<.5;
+    //   };
+    //   this.flipMany = function() {
+    //     var h, t;
+    //     h = t = 0;
+    //     for(i = 0; i < 100; i++)this.flip()? h++ : t++;
+    //     this.heads = h, this.tails = t;
+    //     return this;
+    //     };
+    // }
+    // coinFlip.flipMany().print();
+
+    // // Version 3
+    // var CoinFlip = function() {
+    //   this.heads = 0;
+    //   this.tails = 0;
+    //   this.print = function(elementType) {
+    //     var text = document.createTextNode('Heads: ' + this.heads + '. Tails: ' + this.tails + '.');
+    //     var element = document.createElement(elementType || 'H1');
+    //     element.appendChild(text);
+    //     document.body.appendChild(element);
+    //     return this;
+    //   };
+    //   this.flip = function() {
+    //       return Math.random()<.5;
+    //   };
+    //   this.flipMany = function() {
+    //     var h, t;
+    //     h = t = 0;
+    //     for(i = 0; i < 100; i++)this.flip()? h++ : t++;
+    //     this.heads = h, this.tails = t;
+    //     return this;
+    //     };
+    // }
+    // var myFlip = new CoinFlip();
+    // myFlip.flipMany().print();
+
+    // // Version 2
+    // var coinFlip = {
+    //   print: function(elementType) {
+    //     var text = document.createTextNode('Heads: ' + this.heads + '. Tails: ' + this.tails + '.');
+    //     var element = document.createElement(elementType || 'H1');
+    //     element.appendChild(text);
+    //     document.body.appendChild(element);
+    //     return this;
+    //   },
+    //   flip: function() {
+    //     return Math.random()<.5;
+    //   },
+    //   flipMany: function() {
+    //     var h, t;
+    //     h = t = 0;
+    //     for(i = 0; i < 100; i++)this.flip()? h++ : t++;
+    //     this.heads = h, this.tails = t;
+    //     return this;
+    //     },
+    //     "heads": 0,
+    //     "tails": 0
+    // }
+    // coinFlip.flipMany().print('P').flipMany().print('BUTTON').flipMany().print('BLOCKQUOTE').flipMany().print('TEXTAREA').flipMany().print();
+
+    // // Version 1
+    // // Function to write strings to new elements in the body.
+    function print(string, element) {
+      var text = document.createTextNode(string);
+      var element = document.createElement(element);
+      element.appendChild(text);
+      document.body.appendChild(element);
+    }
+    // Function to return a random boolean.
+    function flip() {
+      return Math.random()<.5;
+    }
+
+    function flipMany() {
+      var h, t;
+      h = t = 0;
+      for(i = 0; i < 100; i++)flip()? h++ : t++;
+      return {"heads": h, "tails": t};
+    }
+    var results = flipMany();
+    print('The coin came up heads ' + results.heads + ' times and tails ' + results.tails + ' times.', 'H1');
+  </script>
 
 </body>
 </html>
